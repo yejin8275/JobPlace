@@ -1,0 +1,1158 @@
+@charset "utf-8";
+/**************************************************
+
+	Respond.css ( ver 1.0.2 )
+
+**************************************************/
+/**************************************************
+	Setting Device Width
+**************************************************/
+#_device_pc{display: block;} #_device_ta{display: none;} #_device_mo{display: none;} .__pc{display: block !important;} .__ta{display: none !important;} .__mo{display: none;}
+@media screen and (min-width: 750px) and (max-width: 1300px){#_device_pc{display: none;} #_device_ta{display: block;} #_device_mo{display: none;} .__pc{display: none !important;} .__ta{display: block !important;} .__mo{display: none;}}
+@media screen and (max-width: 750px){#_device_pc{display: none;} #_device_ta{display: none;} #_device_mo{display: block;} .__pc{display: none !important;} .__ta{display: none;} .__mo{display: block !important;} }
+
+/**************************************************
+	아이폰 하이브리드앱에서 노치 겹침현상 방지
+    ( 노치 높이 만큼 html에 자동으로 padding 부여 )
+**************************************************/
+html{
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+}
+#header{
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
+}
+
+/**************************************************
+	Layout
+**************************************************/
+
+@media screen and (max-width: 1600px){
+
+    @keyframes cssAnimation {
+      from {
+        background-size: 120% 120%
+      }
+      to {
+        background-size: 160% 160%
+      }
+    }
+
+    @-webkit-keyframes cssAnimation {
+        from {
+          background-size: 120% 120%
+        }
+        to {
+          background-size: 160% 160%
+        }
+    }
+
+
+}
+
+
+@media screen and (max-width: 1300px){
+
+	html{min-width: 320px;padding-top: 50px;overflow-x: hidden;}
+    img{max-width:100%;}
+
+	#header{position: fixed;top: 0;left: 0;width: 100%;box-shadow: 0 3px 3px rgba(0,0,0,0.05); background: #fff}
+    #header.on .inner, #header:hover .inner {margin: 0; padding: 0}
+	#header .inner{width: auto;height: 90px; margin-top: 0}
+    #header .logo{position: absolute;top: 0;left: 30px;height: 100%;line-height: 90px;}
+    #header .logo img{width: auto;height: 55px;}
+    #header:after{content: '';display: block;position: absolute;bottom: -1px;width: 100%;height: 1px;background: rgba(0,0,0,0.05);}
+
+	#gnb{display: none;}
+    #tnb{display: none;}
+
+    #hd-lan{display: none;}
+    #hd-sch{display: none;}
+
+    #hdBtns {right: 90px}
+    #header.on #hdBtns, #header:hover #hdBtns {margin-top: 0}
+    #hdBtns > * {display: inline-block;margin: 0 5px; line-height: 43px; padding: 8px 0}
+    #hdBtns a {display: inline-block; vertical-align: top; padding: 0 25px; border: 1px solid rgba(68,68,68,0.5); border-radius: 30px; box-sizing: border-box; font-family: noto; font-size: 20px; line-height: 41px; color: #444}
+    #quickMenu {display: none}
+
+    #mainBottom {height: auto !important}
+    #footer {padding: 15px 10px; box-sizing: border-box}
+    #footer .fnbWrap .inner{width: auto; padding-left: 0}
+    #footer .fnbWrap .inner{width: auto;}
+    #footer .ftWrap{width: auto;padding: 15px 0;}
+    #ftLogo {position: static; text-align: center}
+    #ftLogo img {height: 40px}
+    #footer address{font-size: 10px;line-height: 13px;color: #b3b3b3;font-style: normal;text-align: center; margin-top: 0}
+    #footer address hr{display: block;border: none;margin: 0;}
+    #footer address .copyright{display: block;margin-top: 10px;font-size: 10px;color: #777777;}
+
+    #sns-ico{margin-top: 15px;text-align: center;}
+    #sns-ico li{margin: 2px;}
+    #sns-ico li img{width: 25px;height: auto;}
+
+    #ft-fam{display: none;}
+
+    #gotop{display: none;}
+
+    #fnb{text-align: center;}
+    #fnb > li{display: inline-block;padding: 0 5px;}
+    #fnb > li:first-child{padding-left: 0;background: none;}
+    #fnb > li a{font-size: 11px;color: #b3b3b3;letter-spacing: -1px;line-height: 35px;}
+
+    #slide-btn{top: 50%;right: 30px;display: block;width: 46px;height: 30px;}
+    #slide-btn button span, #slide-btn button:before, #slide-btn button:after {background: #444; height: 3px}
+    #slide-btn button span {margin-top: -2px}
+    #header.on #slide-btn, #header:hover #slide-btn {margin-top: 0}
+
+    #slide-bg{position: fixed;z-index: 200;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0.3);display: none;}
+    #slide-close{position: absolute;top: 0;right: 0;width: 90px;height: 90px;background: url('../images/layout/slide-close.png') no-repeat center center;background-size: 40px auto;}
+
+    #slide-menu{position: fixed;top: 0;right: -100%;width: 80%;height: 100%;display: block;background: #fff;z-index: 201;overflow-y: auto;transition: all 0.3s cubic-bezier(0.930, 0.635, 0.650, 0.970);}
+    #slide-menu .tit{height: 90px;position: relative;background: #154d8d}
+    #slide-menu.on{right: 0;}
+
+    #tnb-mo{text-align: center;line-height: 40px;background: #f7f7f7;}
+    #tnb-mo > li{display: inline-block;margin: 0 10px;}
+    #tnb-mo > li a{font-size: 12px;color: #333;}
+
+    #gnb-mo > li{border-bottom: 1px solid #e1e1e1;}
+    #gnb-mo > li > a{display: block;line-height: 70px;padding: 0 35px;font-size: 20px;letter-spacing: -1px;color: #333;text-decoration: none;}
+    #gnb-mo > li > ul{padding: 15px 25px;border-top: 1px solid #e1e1e1;background: #f7f7f7;display: none;}
+    #gnb-mo > li > ul li a{line-height: 55px;font-size: 18px;color: #666;text-decoration: none;}
+    #gnb-mo > li.hidden-gnb{display: none;}
+    #gnb-mo > li > ul > li > ul {display: none}
+
+    #hdBtns-mo {display: none; position: absolute; top: 50%; left: 10px; transform: translateY(-50%); text-align: center}
+    #hdBtns-mo > * {display: inline-block;margin: 0 3px; line-height: 26px; padding: 8px 0}
+    #hdBtns-mo a {display: inline-block; vertical-align: top; padding: 0 12px; border: 1px solid rgba(255,255,255,0.6); border-radius: 15px; box-sizing: border-box; font-family: noto; font-size: 12px; line-height: 24px; color: #fff}
+
+    #hd-lan-mo{position: absolute;top: 0;left: 15px;z-index: 92;}
+    #hd-lan-mo > a{display: block;line-height: 50px;padding: 0 10px 0 20px;font-size: 12px;color: #fff;text-decoration: none;text-transform: uppercase;background: url('../images/layout/hd-lan-ico-mo.png') no-repeat 0 center / 15px auto, url('../images/layout/hd-lan-spr-mo.png') no-repeat right center / 6px auto;}
+    #hd-lan-mo > ul{position: absolute;top: 40px;left: 50%;display: none;width: 80px;margin-left: -40px;padding: 10px 0;border: 1px solid #b8b8b8;background: #fff;}
+    #hd-lan-mo > ul:before{position: absolute;top: -7px;left: 50%;content: '';display: block;width: 6px;height: 7px;margin-left: -3px;background: url('../images/layout/hd-lanbox-spr-mo.png');}
+    #hd-lan-mo > ul li a{display: block;font-size: 12px;line-height: 20px;color: #666666;text-decoration: none;text-align: center;text-transform: uppercase;}
+    #hd-lan-mo.on > ul{display: block;}
+
+    #hd-sch-mo{position: absolute;top: 14px;left: 85px;z-index: 91;}
+    #hd-sch-mo .btn{display: block;width: 21px;height: 21px;background: url('../images/layout/hd-sch-btn-mo.png') no-repeat center center;background-size: 16px auto;text-indent: -999em;border: none;}
+    #hd-sch-mo form{position: fixed;display: none;top: 50px;right: 0;width: 80%;padding-right: 50px;border: 1px solid #333;border-width: 1px 0 1px 0;overflow: hidden;background: #fff;box-sizing: border-box;}
+    #hd-sch-mo legend{display: none;}
+    #hd-sch-mo .inp{width: 100%;height: 38px;line-height: 38px;text-indent: 10px;background: none;border: none;font-size: 12px;}
+    #hd-sch-mo .sbm{position: absolute;top: 0;right: 0;width: 40px;height: 40px;background: #333 url('../images/layout/hd-sch-btn-mo.png') no-repeat center center;background-size: 18px auto;border: none;text-indent: -999em;}
+    #hd-sch-mo.on form{display: block;}
+
+    /* Site Layer Popup */
+    .sp-pop{top: 65px !important;left: 5% !important;width: 90% !important;height: auto !important;}
+    .sp-pop .img{position: relative;min-height: 100px;padding-bottom: 30px;}
+    .sp-pop .img img{max-width:100%; width: 100%}
+    .sp-pop .btns li{height: 30px;}
+    .sp-pop .btns li a,
+    .sp-pop .btns li label{line-height: 28px;}
+
+    /* etc */
+    .table1 tr > *{font-size: 11px;line-height: 15px;}
+
+}
+
+@media screen and (max-width: 750px){
+
+    #header .inner {height: 46px}
+    #header .logo{left: 10px;line-height: 46px;}
+    #header .logo img{height: 28px;}
+
+    #hdBtns {right: 45px}
+    #hdBtns > * {vertical-align: middle; margin: 0 1px; line-height: 23px}
+    #hdBtns a {padding: 0 12px; font-size: 11px; line-height: 21px; padding-top: 1px}
+
+
+    #slide-btn{right: 10px; width: 22px;height: 14px;}
+    #slide-btn button span, #slide-btn button:before, #slide-btn button:after {height: 2px}
+    #slide-btn button span {margin-top: -1px}
+
+    #slide-menu .tit {height: 46px}
+    #slide-close{width: 46px;height: 46px;background-size: 18px auto;}
+
+    #gnb-mo > li > a {line-height: 40px; padding: 0 15px; font-size: 14px}
+    #gnb-mo > li > ul{padding: 10px 15px;}
+    #gnb-mo > li > ul li a{line-height: 30px;font-size: 14px}
+
+}
+
+/**************************************************
+	Ajax Popup
+**************************************************/
+@media screen and (max-width: 1300px){
+
+    #popup{top: 5%;left: 5%;width: 90%;height: 90%;margin-top: 0;margin-left: 0;padding-top: 41px;}
+    #popup .pop-tit{height: 40px;padding: 0 10px;}
+    #popup .pop-tit h3{font-size: 13px;line-height: 40px;}
+    #popup .pop-tit .close{width: 39px;height: 39px;line-height: 39px;font-size: 13px;}
+    #popup .pop-wrap{height: 100%;overflow-y: auto;padding: 15px;box-sizing: border-box;}
+    #popup.on{opacity: 1;}
+    #popupBG{position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 300;background: rgba(0,0,0,0.5);opacity: 0;transition: all 0.3s;}
+    #popupBG.on{opacity: 1;}
+
+    /* sitemap */
+    #popup .sitemap > li{width: 49%;}
+    #popup .sitemap > li > a{font-size: 12px;line-height: 35px;}
+    #popup .sitemap > li ul li a{font-size: 12px;padding: 7px 0;}
+
+}
+
+
+/**************************************************
+	Main
+**************************************************/
+@media screen and (max-width: 1300px){
+
+    html {padding-top: 0}
+    #header {position: absolute}
+
+    #main .content {overflow: hidden}
+    #main .content .fp-tableCell .inner {margin-top: 50px}
+
+    #main #mainWrap{width: auto;margin: 0;padding: 0}
+    /* #main .section {height: auto !important}
+    #main .section .fp-tableCell {height: auto !important} */
+
+    #main .content {display: table; table-layout: fixed; padding-top: 0; width: 100%}
+    #main .content .fp-tableCell {display: table-cell; vertical-align: middle}
+    #main .content .fp-tableCell .inner {padding: 90px 20px; box-sizing: border-box}
+    #main .content .slogan {padding-bottom: 40px}
+    #main .content .slogan h5 {font-size: 49px; line-height: 60px}
+    #main .content .slogan p {font-size: 26px; line-height: 36px; margin-top: 10px}
+
+
+    #main .visual .visTxt {padding: 0 7%; box-sizing: border-box; z-index: 101;-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);}
+    #main .visual .visTxt h4, #main .visual .visTxt p {z-index: 100}
+    #main .visual .visTxt h4 {font-size: 49px; line-height: 60px}
+    #main .visual .visTxt p {margin-top: 10px; font-size: 26px; line-height: 36px}
+
+    #main .visual .roll .slick-arrow {position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 52px; border: 0; text-indent: -999em; z-index: 10; }
+    #main .visual .roll .slick-prev {left: 30px; background: url('../images/layout/vis_prev_arrow.png') no-repeat center}
+    #main .visual .roll .slick-next {right: 30px; background: url('../images/layout/vis_next_arrow.png') no-repeat center}
+
+    #main .visual .roll .item {}
+    #main .visual .roll .item.slick-active.slick-current {}
+    #main .visual .roll .item img{position: static;margin-left: 0;width: 100%;height: auto;}
+    #main .visual .slick-dots{bottom: 30px;}
+    #main .visual .slick-dots li{margin: 0 2px;}
+    #main .visual .slick-dots li button{width: 10px;height: 10px;}
+    #main .visual .btns {margin-top: 50px}
+    #main .visual .btns ul li {padding: 0 5px}
+    #main .visual .btns ul li a {width: 120px; padding: 0 20px}
+    #main .visual .btns ul li a span {line-height: 38px; font-size: 14px}
+
+    #main .visual .roll .item {background: none !important; padding-bottom: 100vh}
+    #main .visual .roll .item .moImg {position: absolute; top: 0; left: 0; display: block; width: 100%; height: 100vh; }
+
+    #main .visual .roll .item .moImg .tmb {padding-bottom: 100vh; background-size: cover; background-repeat: no-repeat; background-position: center; -webkit-transition: all 2s cubic-bezier(0.7, 0, 0.3, 1); transition: all 2s cubic-bezier(0.7, 0, 0.3, 1); -webkit-transform: scale(1); transform: scale(1);}
+    #main .visual .roll .item.slick-active.slick-current .moImg .tmb {-webkit-transform: scale(1.4); transform: scale(1.4); -webkit-animation: fadeIn 6s 1 ease-in-out; animation: fadeIn 6s 1 ease-in-out;}
+
+    @keyframes fadeIn {
+        from {
+            -webkit-transform: scale(1) translate(0px);
+        }
+        to {
+            -webkit-transform: scale(1.4) translate(0px);
+        }
+    }
+
+    #mainSection01 .slogan h5 strong:before {height: 4px; background-size: contain}
+    #mainSection01 ul {margin: -5px}
+    #mainSection01 ul li {flex: 1 1 22%; padding: 5px}
+    #mainSection01 ul li a {padding: 30px 0 20px 0}
+    #mainSection01 ul li img {width: 65px}
+    #mainSection01 ul li p {margin-top: 15px; font-size: 16px; line-height: 24px}
+
+    #mainSection02 .slogan h5 strong:before {height: 4px; background-size: contain}
+    #mainSection02 dl {margin: 0 -10px}
+    #mainSection02 dl > * {width: calc(50% - 20px); margin: 0 10px; padding: 40px 30px}
+    #mainSection02 dl .txt {padding-bottom: 40px}
+    #mainSection02 dl .txt:after {width: 35px; height: 35px}
+    #mainSection02 dl .txt h6 {font-size: 22px; line-height: 30px}
+    #mainSection02 dl .txt p {font-size: 14px; line-height: 22px; margin-top: 5px}
+    #mainSection02 dl .txt p br {display: none}
+
+    #mainSection03 .slogan h5 strong:before {height: 4px; background-size: contain}
+    #mainSection03 ul {margin: -10px}
+    #mainSection03 ul li {flex: 1 30%; padding: 10px}
+    #mainSection03 ul li a {padding: 30px 0; height: auto}
+    #mainSection03 ul li img {width: 60px}
+    #mainSection03 ul li p {margin-top: 20px !important; font-size: 16px; line-height: 22px}
+    #mainSection03 ul li p br {display: none}
+
+    #mainSection04 .tit {padding-bottom: 15px; margin-bottom: 30px}
+    #mainSection04 .tit h5 {font-size: 49px; line-height: 60px}
+    #mainSection04 .tit h5 p {font-size: 18px; line-height: 24px; margin-top: 5px}
+    #mainSection04 .tit ul {position: static; text-align: left; margin-top: 15px}
+    #mainSection04 .tit ul li {margin-left: 0; margin-right: 20px; padding-left: 35px; font-size: 16px; line-height: 25px; background-size: 25px !important}
+    #mainSection04 form {margin: 0}
+    #mainSection04 fieldset {float: none; width: 100%; margin: 0}
+
+    #mainSection04 form ul li {margin-bottom: 5px; padding: 0 5px 0 85px}
+    #mainSection04 form ul li strong {padding-left: 20px; font-size: 14px; line-height: 40px}
+    #mainSection04 form ul li .inp,
+    #mainSection04 form ul li .selt {height: 40px; line-height: 40px; font-size: 14px}
+    #mainSection04 form ul li .fileCust {vertical-align: top; height: 40px; line-height: 40px}
+    #mainSection04 form ul li .fileCust > * {display: inline-block; vertical-align: top; margin: 5px 0; height: 30px}
+    #mainSection04 form ul li .fileCust .upload {height: 30px; width: calc(100% - 100px)}
+    #mainSection04 form ul li .fileCust label {width: 100px; line-height: 30px}
+    #mainSection04 form ul li textarea {height: 120px; padding: 15px}
+    #mainSection04 form .btns label {font-size: 13px; line-height: 22px}
+    #mainSection04 form .btns label input {margin-top: 5px}
+    #mainSection04 form .btns button {width: 160px; height: 40px; line-height: 40px; font-size: 15px}
+
+
+
+
+
+}
+
+@media screen and (max-width: 750px){
+
+    html {padding-top: 0}
+    #header {position: absolute}
+    /* .fp-viewing-Visual #header {position: absolute;} */
+
+
+    #main .content {overflow: hidden}
+    #main .content .fp-tableCell .inner {margin-top: 50px}
+
+    #main .section {padding-top: 0; box-sizing: border-box}
+    #main .section .fp-tableCell {height: 100% !important}
+    /* #main .section .fp-tableCell .inner {padding: 0 10px} */
+    #mainBottom.section  {padding-top: 0; height: 190px !important}
+    #mainBottom .fp-tableCell {height: 100% !important}
+
+    #main .visual {padding-top: 0}
+    #main .visual .roll,
+    #main .visual .roll .slick-list,
+    #main .visual .roll .slick-track {height: 100%}
+
+
+
+    #main .visual .roll .item {padding-bottom: 0 !important; height: 100%}
+    #main .visual .roll .slick-arrow {position: absolute; top: 50%; transform: translateY(-50%); width: 30px; height: 36px; border: 0; text-indent: -999em; z-index: 10}
+    #main .visual .roll .slick-prev {left: 5px; background: url('../images/main/vis_prev_arrow.png') no-repeat center}
+    #main .visual .roll .slick-next {right: 5px; background: url('../images/main/vis_next_arrow.png') no-repeat center}
+    #main .visual .roll .item {background: none !important; padding-bottom: 100vh}
+    #main .visual .roll .item .moImg {position: absolute; top: 0; left: 0; display: block; width: 100%; height: 100vh; }
+
+    #main .visual .roll .item .moImg .tmb {padding-bottom: 100vh; background-size: cover; background-repeat: no-repeat; background-position: center; -webkit-transition: all 2s cubic-bezier(0.7, 0, 0.3, 1); transition: all 2s cubic-bezier(0.7, 0, 0.3, 1); -webkit-transform: scale(1); transform: scale(1);}
+    #main .visual .roll .item.slick-active.slick-current .moImg .tmb {-webkit-transform: scale(1.4); transform: scale(1.4); -webkit-animation: fadeIn 6s 1 ease-in-out; animation: fadeIn 6s 1 ease-in-out;}
+
+
+
+    @keyframes fadeIn {
+        from {
+            -webkit-transform: scale(1) translate(0px);
+        }
+        to {
+            -webkit-transform: scale(1.4) translate(0px);
+        }
+    }
+
+
+    #main .visual .visTxt {top: 50%; padding: 0 10%; margin-top: 25px; -ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);}
+    #main .visual .visTxt h4 {font-size: 23px; line-height: 36px}
+    #main .visual .visTxt h4 strong:before {top: -1px; width: 3px; height: 3px}
+    #main .visual .visTxt p {font-size: 14px; line-height: 21px}
+    #main .visual .visTxt p br {display: none}
+    #main .visual .btns {margin-top: 25px}
+    #main .visual .btns ul {padding: 0 25px}
+    #main .visual .btns ul li {width: 50%; padding: 5px; box-sizing: border-box}
+    #main .visual .btns ul li a {width: 100%}
+    #main .visual .btns ul li a span {padding-right: 20px; font-size: 13px}
+
+    #main .visual .slick-slider {
+        touch-action: auto;
+        -ms-touch-action: auto;
+    }
+
+    #main .content .fp-tableCell .inner {padding: 0 10px}
+    #main .content .slogan {padding-bottom: 20px}
+    #main .content .slogan h5 {font-size: 23px; line-height: 36px}
+    #main .content .slogan p {font-size: 14px; line-height: 21px; margin-top: 5px}
+    #main .content .slogan p br {display: none}
+
+    #mainSection01 .slogan h5 strong:before {top: -3px; height: 3px}
+    #mainSection01 ul {margin: -4px 4px}
+    #mainSection01 ul li {flex: 1 1 18%; margin: 4px; padding: 0}
+    #mainSection01 ul li a {padding: 20px 0 10px 0}
+    #mainSection01 ul li img {width: 40px}
+    #mainSection01 ul li p {margin-top: 8px; font-size: 11px}
+
+    #mainSection02 dl {margin: 0 10px}
+    #mainSection02 dl > * {width: calc(50% - 20px); margin: 0 10px; padding: 15px}
+    #mainSection02 dl .txt {padding-bottom: 35px}
+    #mainSection02 dl .txt:after {width: 25px; height: 25px}
+    #mainSection02 dl .txt h6 {font-size: 17px; line-height: 24px}
+    #mainSection02 dl .txt p {font-size: 13px; line-height: 20px; margin-top: 4px}
+
+    #mainSection03 ul {align-items: stretch; margin: -5px 5px}
+    #mainSection03 ul li {flex: 1 1 25%; padding: 0; margin: 5px}
+    #mainSection03 ul li a {height: 100%; padding: 20px 5px 15px 5px}
+    #mainSection03 ul li img {width: 35px}
+    #mainSection03 ul li p {margin-top: 10px !important; font-size: 13px; line-height: 20px}
+
+    #mainSection04 .tit {padding-bottom: 10px; margin-bottom: 10px}
+    #mainSection04 .tit h5 {font-size: 23px; line-height: 36px}
+    #mainSection04 .tit h5 p {font-size: 14px; line-height: 21px}
+    #mainSection04 .tit ul li {margin-bottom: 5px; font-size: 14px}
+
+    #mainSection04 {position: relative; background-position: center top}
+    #mainSection04 .tit {height: calc(100% - 295px)}
+    #mainSection04 form {height: 295px; box-sizing: border-box}
+
+    #mainSection04 form ul {display: flex; flex-flow: row wrap; margin: -2px}
+    #mainSection04 form ul li {width: calc(50% - 4px); margin: 2px; padding: 0 5px 0 48px}
+    #mainSection04 fieldset.left ul li:first-child {width: calc(100% - 4px)}
+    #mainSection04 form .right {margin-top: 4px}
+    #mainSection04 form .right ul li:last-child {width: calc(100% - 4px)}
+    #mainSection04 form ul li strong {padding-left: 5px; font-size: 11px; line-height: 32px}
+    #mainSection04 form ul li .inp, #mainSection04 form ul li .selt {font-size: 11px; height: 32px; line-height: 32px}
+    #mainSection04 form ul li .fileCust {height: 32px; line-height: 32px}
+    #mainSection04 form ul li .fileCust > * {height: 32px}
+    #mainSection04 form ul li .fileCust .upload {width: calc(100% - 26px); margin: 0; font-size: 11px}
+    #mainSection04 form ul li .fileCust label {margin: 0 ;margin-top: 3px; width: 26px; height: 26px; line-height: 26px;text-indent: -999em; background: #8e8e8e url('../images/main/main_form_file_ico.png') no-repeat center}
+    #mainSection04 form ul li textarea {height: 70px; padding: 10px 15px; font-size: 11px; line-height: 16px}
+    #mainSection04 form .btns button {position: static; width: 100%; margin-top: 5px; height: 36px; line-height: 36px; font-size: 13px}
+
+}
+
+/**************************************************
+	Sub
+**************************************************/
+@media screen and (max-width: 1300px){
+
+    .sub {padding-top: 90px}
+    .sub #header {position: fixed}
+
+    #sub #content{ width: auto;padding: 50px 10px; }
+
+    #sub .sub-vis{height: 190px;}
+    #sub .sub-vis h2{font-size: 28px; margin-top: 0}
+    #sub .sub-vis h2 em{margin-top: 5px;font-size: 16px; line-height: 24px}
+
+    #sub .sub-tit {padding-bottom: 35px;}
+    #sub .sub-tit h3 {font-size: 24px; line-height: 32px}
+    #sub .sub-tit p {font-size: 16px; line-height: 24px; margin-top: 5px}
+
+    .lnbWrap{display: none;}
+    .depth3 {display: none}
+
+    #status{display: none;}
+
+    #navigator{display: block; border-width: 0 0 1px 0;}
+    #navigator > ul{width: auto;border-left: none;padding-left: 40px;}
+    #navigator > ul > li{width: 50%;box-sizing: border-box;}
+    #navigator.dep3 > ul > li {width: 33.33%}
+    #navigator > ul > li > a{min-width: 0;font-size: 13px;padding: 0 20px 0 8px;line-height: 40px;background-size: 8px auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap}
+    #navigator > ul > li:first-child{position: absolute;top: 0;left: 0;width: 40px;}
+    #navigator > ul > li:first-child a{width: 40px;background: none;}
+    #navigator > ul > li.d2,
+    #navigator.dep3 > ul > li.d3 {border: none;}
+    #navigator.dep3 > ul > li.d2 {border-right: 1px solid #ddd}
+    #navigator > ul > li > ul{top: 40px;left: -1px;}
+    #navigator > ul > li.d2 > ul,
+    #navigator.dep3 > ul > li.d3 > ul {border-right: none;}
+    #navigator.dep3 > ul > li.d2 > ul {border-right: 1px solid #ddd}
+    #navigator > ul > li > ul li a{padding: 10px;font-size: 13px;}
+    #navigator > ul > li > ul > li > ul {display: none}
+
+    .subTit {padding-left: 20px; font-size: 22px; line-height: 34px}
+    .subTit:before {top: 12px; width: 12px; height: 12px}
+    .subTit2 {font-size: 19px; line-height: 24px; padding-left: 20px}
+    .subTit2:before {top: 11px; width: 14px; height: 2px}
+    .subTxt {padding-left: 20px; font-size: 15px; line-height: 22px; margin-top: 5px}
+    .subTxt br {display: none}
+
+    .sTit {font-size: 26px; line-height: 30px}
+    .sTxt {font-size: 16px; line-height: 24px}
+    .sTxt br {display: none}
+
+    .brBox {border-width: 5px; padding: 40px 30px}
+    .bgBox {padding: 35px 25px}
+
+    .grtWrap .txt {margin-top: 40px}
+    .grtWrap .txt dt {flex-basis: auto; width: 100%}
+    .grtWrap .txt h5 {font-size: 24px; line-height: 34px; margin-bottom: 10px}
+    .grtWrap .txt h5 br {display: none}
+    .grtWrap .txt dt p {font-size: 16px; line-height: 24px}
+    .grtWrap .txt p {font-size: 15px; line-height: 24px; margin-bottom: 10px}
+    .grtWrap .txt p br {display: none}
+    .grtWrap .txt ul li strong {font-size: 17px; line-height: 24px}
+    .grtWrap .txt ul li strong:before {height: 16px; transform: none; margin-top: -8px}
+    .grtWrap .txt h6 {margin-top: 30px; font-size: 14px}
+    .grtWrap .txt h6 img {margin-left: 10px; margin-top: -5px; height: 42px}
+
+    .absWrap .top {padding-bottom: 40px}
+    .absWrap .top .tbl {margin-top: 15px}
+    .absWrap .top .tbl table tr > * {padding: 10px 0; line-height: 22px; font-size: 13px}
+    .absWrap .top .tbl table tr th {font-size: 14px}
+    .absWrap .top .tbl table tr td {padding-left: 10px}
+    .absWrap .bot .imgBox {margin-top: 15px; padding-top: 35px}
+
+    .visWrap > div {margin-bottom: 35px}
+    .visWrap .brBox {margin-top: 15px}
+    .visWrap .visMis h6 {font-size: 18px; line-height: 26px}
+    .visWrap .imgBg {margin-top: 15px; height: 180px}
+    .visWrap .imgBg h6 {font-size: 24px; line-height: 30px}
+    .visWrap .imgBg h6 span {font-size: 15px; margin-bottom: 5px}
+    .visWrap .visCore h6 {font-size: 20px; line-height: 30px; margin-bottom: 25px}
+
+    .locWrap dl {display: block}
+    .locWrap dl:first-child {margin-bottom: 30px}
+    .locWrap dl dt {margin-bottom: 10px}
+    .locWrap dl dt > div {height: 270px !important}
+    .locWrap dl dt > div > div {height: 100% !important}
+    .locWrap dl dd {margin-left: 0; padding: 30px 20px}
+    .locWrap dl dd h6 {font-size: 18px; line-height: 24px}
+    .locWrap dl dd ul {margin-top: 20px}
+    .locWrap dl dd ul li {font-size: 14px; line-height: 24px; margin-bottom: 5px; padding-left: 60px}
+    .locWrap dl dd ul li br {display: none}
+    .locWrap dl dd ul li strong {padding-left: 20px}
+    .locWrap dl dd ul li strong:before {height: 17px; background-size: 14px !important}
+    .locWrap dl dd a {position: static; display: block; width: 100%; margin-top: 20px; padding: 0 20px; height: 40px; line-height: 40px}
+    .locWrap dl dd a span {font-size: 14px}
+    .locWrap dl dd a span:before {line-height: 40px; font-size: 16px}
+
+    .bsnWrap .imgBox {padding: 30px; padding-bottom: 0}
+    .bsnWrap .brb {padding-bottom: 35px !important; margin-bottom: 35px}
+    .bsnWrap .exTxt {font-size: 14px; line-height: 24px}
+    .bsnWrap .ccpt {padding-bottom: 60px}
+    .bsnWrap .area .box {margin-top: 40px}
+    .bsnWrap .area .box dl {margin-bottom: 60px; flex-direction: row !important}
+    .bsnWrap .area .box dl:before {width: 98%; height: calc(100% + 30px)}
+    .bsnWrap .area .box dl > * {width: 100%}
+    .bsnWrap .area .box dl dt {margin-top: 0}
+    .bsnWrap .area .box dl dd {padding: 40px 60px; padding-bottom: 0}
+    .bsnWrap .area .box dl .mid {padding-left: 50px}
+    .bsnWrap .area .box dl .mid img {top: -5px; width: 35px}
+    .bsnWrap .area .box dl .mid h6 {font-size: 20px; line-height: 26px}
+    .bsnWrap .area .box dl .mid strong {font-size: 17px; line-height: 24px; margin: 5px 0 10px}
+    .bsnWrap .area .box dl .mid p {font-size: 15px; line-height: 24px}
+    .bsnWrap .area .box dl .mid p br {display: none}
+    .bsnWrap .prcs {padding: 90px 0 60px 0}
+    .bsnWrap .prcs .brBox {margin-top: 30px}
+    .bsnWrap .prcs.type02 .brBox {margin-top: 15px}
+    .bsnWrap .prcs ul {margin-top: 30px}
+    .bsnWrap .prcs.type02 ul {}
+    .bsnWrap .prcs ul:before {top: 60px}
+    .bsnWrap .prcs.type02 ul:before {top: 50px}
+    .bsnWrap .prcs ul li {padding: 0 10px}
+    .bsnWrap .prcs.type02 ul li {padding: 0 5px}
+    .bsnWrap .prcs ul li img {max-width: 120px}
+    .bsnWrap .prcs.type02 ul li img {max-width: 100px}
+    .bsnWrap .prcs ul li dl {margin-top: 15px}
+    .bsnWrap .prcs ul li dl dt {font-size: 17px; line-height: 22px; margin-bottom: 5px}
+    .bsnWrap .prcs ul li dl dt span {font-size: 13px; line-height: 18px; margin-bottom: 2px}
+    .bsnWrap .prcs ul li dl dd {padding-left: 8px; font-size: 14px; line-height: 22px}
+    .bsnWrap .prcs ul li dl dd:before {width: 3px; height: 3px; top: 9px}
+    .bsnWrap .prcs ul li p {font-size: 15px; line-height: 20px; margin-top: 10px}
+    .bsnWrap .efft .sTxt {margin-top: 10px}
+
+    .bsnWrap .topImg {height: 180px; margin-bottom: 40px; padding: 0 20px; box-sizing: border-box}
+    .bsnWrap .topImg h6 {font-size: 24px; line-height: 32px}
+    .bsnWrap .topImg p {font-size: 15px; line-height: 24px; margin-top: 10px}
+    .bsnWrap .topImg p br {display: none}
+    .bsnWrap .mod {padding-bottom: 40px}
+    .bsnWrap .mod .brBox {margin-top: 15px}
+    .bsnWrap .mod ul {justify-content: center}
+    .bsnWrap .mod ul > li {padding: 0 5px; box-sizing: border-box}
+    .bsnWrap .mod ul > li:nth-child(odd) {width: 185px}
+    .bsnWrap .mod ul > li:nth-child(2) img {width: 100px}
+    .bsnWrap .mod ul > li:last-child img {width: 160px}
+    .bsnWrap .mod ul > li h6 {line-height: 34px; font-size: 14px; border-radius: 5px}
+    .bsnWrap .mod ul > li > ol.lsrt {padding: 20px 15px}
+    .bsnWrap .mod ul > li > ol.llrt {padding: 12px}
+    .bsnWrap .mod ul > li > ol > li {font-size: 13px; line-height: 22px; padding-left: 15px; background-size: 10px; background-position: left 6px}
+    .bsnWrap .mod ul > li > ol > li br {display: none}
+    .bsnWrap .field {padding-bottom: 40px}
+    .bsnWrap .field ul {margin-top: 15px}
+    .bsnWrap .field.type01 ul li {flex: 1 1 30%; margin-right: 10px}
+    .bsnWrap .field.type02 ul li {flex: 1 1 22%; margin-right: 10px}
+    .bsnWrap .field.type03 ul li {flex: 1 1 30%; margin-right: 10px}
+    .bsnWrap .field.type01 ul li:nth-child(3n),
+    .bsnWrap .field.type03 ul li:nth-child(3n) {margin-right: 0}
+    .bsnWrap .field.type02 ul li:nth-child(4n) {margin-right: 0}
+    .bsnWrap .field.type01 ul li:nth-child(n+4),
+    .bsnWrap .field.type03 ul li:nth-child(n+4) {margin-top: 10px}
+    .bsnWrap .field ul li span {width: 35px; height: 35px; line-height: 35px; font-size: 16px}
+    .bsnWrap .field ul li dl {padding: 15px 0}
+    .bsnWrap .field.type03 ul li dl {padding: 15px 20px}
+    .bsnWrap .field ul li dl dt {font-size: 16px; line-height: 20px}
+    .bsnWrap .field.type03 ul li dl dt {font-size: 16px; line-height: 20px; padding-bottom: 10px; margin-bottom: 10px}
+    .bsnWrap .field ul li dl dd {font-size: 14px; line-height: 24px; margin-top: 5px}
+    .bsnWrap .field.type03 ul li dl dd {padding-left: 15px; line-height: 24px}
+    .bsnWrap .field.type03 ul li dl dd:before {top: 10px; left: 5px; width: 3px; height: 3px}
+    .bsnWrap .comp {padding-bottom: 40px}
+    .bsnWrap .comp .box {margin-top: 15px}
+    .bsnWrap .comp .box dl {padding: 25px}
+    .bsnWrap .comp .box dl dt {flex-basis: 100px}
+    .bsnWrap .comp .box dl dt img {width: 80px}
+    .bsnWrap .comp .box dl dd .txt h6 {font-size: 17px; line-height: 24px; margin-bottom: 5px}
+    .bsnWrap .comp .box dl dd .txt p {font-size: 14px; line-height: 22px; padding-left: 8px}
+    .bsnWrap .comp .box dl dd .txt p:before {width: 2px; height: 2px; top: 10px}
+    .bsnWrap .comp .box dl dd .txt p br {display: none}
+    .bsnWrap .target ul {margin-top: 15px}
+    .bsnWrap .target ul li {flex: 1 1 22%; margin-right: 10px}
+    .bsnWrap .target ul li:nth-child(n+5) {margin-top: 15px}
+    .bsnWrap .target ul li:nth-child(4n) {margin-right: 0}
+    .bsnWrap .target ul li p {margin-top: 10px; font-size: 15px; line-height: 20px}
+    .bsnWrap .prog {padding-bottom: 40px}
+    .bsnWrap .prog ul {margin-top: 15px}
+    .bsnWrap .prog.type01 ul > li {flex: 1 22%; padding-right: 20px}
+    .bsnWrap .prog.type02 ul > li {flex: 1 30%; padding-right: 20px; max-width: 100%}
+    .bsnWrap .prog.type02 ul > li:nth-child(3) {padding-right: 0}
+    .bsnWrap .prog.type02 ul > li:nth-child(n+4) {margin-top: 10px}
+    .bsnWrap .prog ul > li:before {right: 3px; width: 14px; height: 10px}
+    .bsnWrap .prog.type02 ul > li:nth-child(3):before {display: none}
+    .bsnWrap .prog ul > li:last-child {padding-right: 0}
+    .bsnWrap .prog ul > li dl dt {line-height: 34px; font-size: 15px; border-radius: 5px}
+    .bsnWrap .prog ul > li dl dd {padding: 15px; min-height: 95px}
+    .bsnWrap .prog ul > li dl dd ol li {padding-left: 10px; font-size: 14px; line-height: 22px}
+    .bsnWrap .prog ul > li dl dd ol li:before {top: 9px; width: 2px; height: 2px}
+    .bsnWrap .prog .exTxt {margin-top: 15px}
+    .bsnWrap .talent .bgBox {margin-top: 15px}
+    .bsnWrap .concept.half {padding-bottom: 40px}
+    .bsnWrap .concept.half dl {margin-top: 15px}
+    .bsnWrap .concept.half dl > * {width: 100%}
+    .bsnWrap .concept.half dl .mid {padding: 30px; padding-bottom: 35px}
+    .bsnWrap .concept.half dl .mid strong {line-height: 24px}
+    .bsnWrap .concept.half dl .mid strong.blTit {font-size: 16px; margin: 8px 0 5px}
+    .bsnWrap .concept.half dl .mid strong.bkTit {font-size: 18px; margin-bottom: 10px}
+    .bsnWrap .concept.half dl .mid p.hlTxt {font-size: 14px; line-height: 22px; margin-top: 5px}
+    .bsnWrap .concept.half dl .mid p br {display: none}
+    .bsnWrap .sphe {padding-bottom: 40px}
+    .bsnWrap .sphe ul {margin-top: 15px}
+    .bsnWrap .sphe ul li {flex: 1 30%; border-width: 1px 1px 0 0; padding-top: 25px; min-height: 325px}
+    .bsnWrap .sphe ul li:nth-child(4) {border-left: 1px solid #ddd}
+    .bsnWrap .sphe ul li:nth-child(n+4) {border-bottom: 1px solid #ddd}
+    .bsnWrap .sphe ul li img {width: 85px}
+    .bsnWrap .sphe ul li dl {margin-top: 10px}
+    .bsnWrap .sphe ul li dt {font-size: 17px; line-height: 24px}
+    .bsnWrap .sphe ul li dd {margin-top: 10px; font-size: 14px; line-height: 24px}
+    .bsnWrap .info {padding-bottom: 40px}
+    .bsnWrap .info .box dl {padding: 20px 70px; padding-right: 40px}
+    .bsnWrap .info .box dt:before {top: -2px; left: -38px; width: 28px; height: 28px; line-height: 28px; font-size: 15px}
+    .bsnWrap .info .box dt {font-size: 17px; line-height: 24px}
+    .bsnWrap .info .box dd {font-size: 14px; line-height: 22px; margin-top: 5px}
+    .bsnWrap .info .box dd br {display: none}
+    .bsnWrap .sysm {padding-bottom: 40px}
+    .bsnWrap .sysm .brBox {padding: 20px 30px}
+    .bsnWrap .sysm ul li {flex: 1 50%; padding: 10px 20px}
+    .bsnWrap .sysm ul li:after {top: 21px}
+    .bsnWrap .sysm ul li:nth-child(3n):after {display: block}
+    .bsnWrap .sysm ul li:nth-child(even):after {display: none}
+    .bsnWrap .sysm ul li h6 {margin: 0 25px; line-height: 36px; font-size: 14px}
+    .bsnWrap .sysm ul li strong {font-size: 17px; line-height: 24px; margin: 10px 0 5px 0}
+    .bsnWrap .sysm ul li p {font-size: 14px; line-height: 22px}
+    .bsnWrap .hrm {padding-bottom: 40px}
+    .bsnWrap .prgm {padding-bottom: 40px}
+    .bsnWrap .prgm .subTit2 {margin: 20px 0 15px}
+    .bsnWrap .prgm ul li {padding: 25px 10px}
+    .bsnWrap .prgm ul li img {width: 80px}
+    .bsnWrap .prgm ul li h6 {font-size: 17px; line-height: 24px; margin: 15px 0 10px}
+    .bsnWrap .prgm ul li p {font-size: 14px; line-height: 22px}
+
+
+    .list .downloads {padding: 10px 0; margin-bottom: 30px}
+    .list .downloads dt {font-size: 15px; margin-right: 10px}
+    .list .downloads dd > * {margin: 0 2px; padding: 0 10px}
+    .list .tmbList li {flex:  1 1 30%; max-width: calc(33.33% - 20px); padding: 20px}
+    .list .tmbList li .info {margin-top: 10px}
+    .list .tmbList li .info h6 {font-size: 16px; line-height: 24px}
+    .list .tmbList li .info p {font-size: 14px; line-height: 20px}
+
+    .memWrap .btns {margin-top: 20px}
+    .memWrap .btns .btn {margin: 0 3px; line-height: 40px; font-size: 14px}
+    .memWrap .btns .btn.w170 {width: 130px}
+    .memWrap .btns .btn.w190 {width: 150px}
+    .memWrap .btns .btn.type02 {line-height: 38px}
+    .memWrap .btns .lbtn {font-size: 16px; line-height: 40px; background-size: 40px !important}
+    .memWrap .btns .lbtn.prev {padding-left: 50px}
+    .memWrap .btns .lbtn.next {padding-right: 50px}
+    .memWrap .eTxt {font-size: 14px; line-height: 22px}
+    .memWrap .brBox {border-width: 5px; padding: 30px}
+    .memWrap.view2 .brBox {padding: 20px}
+
+    .moreLink {width: 190px; height: 48px; line-height: 44px}
+    .moreLink span {line-height: 44px}
+    .moreLink:hover {width: 190px}
+    .moreLink .txt {font-size: 15px}
+
+    .tList .tbl table colgroup,
+    .tList .tbl table tr .numb {display: none}
+    .tList .tbl table tr > * {padding: 10px; font-size: 13px; line-height: 20px}
+    .tList .tbl table tr th {line-height: 40px; font-size: 14px; padding: 5px}
+    .tList .tbl table tr span {font-size: inherit}
+    .tList .tbl table tr td.sbj {padding: 0 15px}
+    .tList .tbl table tr .inq .vwBtn {width: auto; padding: 0 15px; line-height: 26px; font-size: 12px}
+
+    .view .topBg {height: 150px; margin-bottom: 30px}
+    .view .topBg h5 {font-size: 22px; line-height: 30px}
+    .view .topBg p {font-size: 15px; line-height: 22px; margin-top: 5px}
+    .view .Title {padding: 15px 0; margin-bottom: 20px}
+    .view .Title span {font-size: 13px; line-height: 18px}
+    .view .Title h6 {font-size: 17px; line-height: 24px}
+    .view .info {border-width: 4px; padding: 25px 0; margin-bottom: 20px}
+    .view .info li h6 {font-size: 15px; line-height: 22px; padding-left: 20px; background-size: 14px !important}
+    .view .info li p {margin-top: 5px; font-size: 14px; line-height: 22px}
+    .view .inqBox {margin: 40px 0}
+    .view .inqBox h6 {font-size: 18px; line-height: 24px}
+    .view .inqBox .tbl {margin-top: 10px}
+    .view .inqBox .tbl table tr > * {padding: 10px 15px; font-size: 14px; line-height: 22px}
+
+    .view2 .sec .tit {margin-bottom: 20px}
+    .view2 .sec .tit h5 {font-size: 22px; line-height: 30px}
+    .view2 .sec .tit .btn a {width: 70px; line-height: 30px; font-size: 13px}
+    .view2 .sec .tit .btn .popBox ul {top: 30px}
+
+
+    .apply .tit {margin-bottom: 10px}
+    .apply .tit h5 {font-size: 18px; line-height: 24px}
+    .apply .tit h5 span {font-size: 13px; margin-left: 10px}
+    .apply .tit p {font-size: 13px}
+    .apply textarea {height: 150px; padding: 10px 15px; font-size: 13px; line-height: 20px}
+
+    .apply fieldset .tbl {display: none}
+
+    /* 입사지원서 수정 모바일 버전 */
+    .apply fieldset .tbl-mo {display: block}
+    .tbl-mo {max-width: 1100px; margin: 0 auto}
+    .tbl-mo table {width: 100%; border-top: 2px solid #333333}
+    .tbl-mo table tr > * {border: 1px solid #ddd; padding: 5px 0; font-size: 14px; line-height: 32px; color: #333}
+    .tbl-mo table tr th:first-child,
+    .tbl-mo table tr td:first-child {border-left: 0}
+    .tbl-mo table tr th:last-child,
+    .tbl-mo table tr td:last-child {border-right: 0}
+    .tbl-mo table tr th {background: #f7f7f7; font-weight: 300}
+    .tbl-mo table tr th.vtcTxt {line-height: 20px}
+    .tbl-mo table tr td {text-align: left; padding: 5px 10px}
+    .tbl-mo table tr td > * {line-height: 32px}
+    .tbl-mo table tr td .inp,
+    .tbl-mo table tr td .selt {width: 85%; height: 32px; border: 1px solid #ddd; padding: 0 10px; font-size: 13px}
+    .tbl-mo table tr td .inp.w15 {width: 15%}
+    .tbl-mo table tr td .inp.w20 {width: 20%}
+    .tbl-mo table tr td .inp.w35 {width: 25%}
+    .tbl-mo table tr td .selt.w40 {width: 30%}
+    .tbl-mo table tr td.upFile1 {text-align: center; padding: 10px}
+    .tbl-mo table tr td .ubtn {display: block; margin-top: 5px; font-size: 14px; color: #333; letter-spacing: -1px}
+    .tbl-mo table tr td .upFile1 {position: absolute; width: 0; height: 0; padding: 0; overflow: hidden; border: 0}
+    .tbl-mo.type02 table tr {border-bottom: 1px solid #999}
+    .tbl-mo.type02 table tr > * {display: block; border: 0; border-bottom: 1px solid #ddd}
+    .tbl-mo.type02 table tr td {position: relative; padding-left: 90px}
+    .tbl-mo.type02 table tr td strong {position: absolute; top: 5px; left: 5px; line-height: 32px; font-weight: 300}
+
+    .memBg {height: 150px; margin-bottom: 25px}
+    .memBg h5 {font-size: 22px; line-height: 30px}
+    .memBg p {font-size: 15px; line-height: 22px; margin-top: 10px}
+
+
+
+    .docBox h6.tit {font-size: 20px; line-height: 30px; margin-bottom: 20px}
+    .docBox .tbl {margin-bottom: 20px}
+    .docBox .tbl.type00 table tr > * {height: 40px; padding: 5px 0; font-size: 13px}
+    .docBox .tbl table tr th {font-size: 13px}
+    .docBox .tbl.type00 table tr td {padding: 5px 10px}
+    .docBox .ftBox .mbtn > * {width: 80px; font-size: 12px}
+
+    .srchBar {margin-bottom: 30px}
+    .srchBar span:first-child {display: block; line-height: 20px; margin-bottom: 10px}
+    .srchBar .selt {width: 110px; height: 40px; line-height: 40px; padding: 0 10px; font-size: 14px}
+    .srchBar .selt.ml25 {margin-left: 0 !important}
+    .srchBar .sbm {display: block; margin: 0 auto; margin-top: 5px; width: 120px; height: 40px; line-height: 40px; font-size: 14px}
+    .srchBar dl {display: block}
+    .srchBar dl:first-child {margin-bottom: 10px}
+    .srchBar dl > * {vertical-align: middle}
+    .srchBar dl dt span {display: inline-block !important; line-height: 30px !important; margin: 0 !important; padding-right: 10px}
+    .srchBar dl dd {margin-left: 0}
+    .srchBar dl dd .sbm {display: inline-block; margin-top: 0}
+    .srchBar .srh {vertical-align: middle; margin: 0 2px; width: 60px; line-height: 28px; font-size: 13px}
+
+    .chkTbl table colgroup {display: none !important}
+    .chkTbl table tr > * {font-size: 14px; padding: 0 5px}
+    .chkTbl table tr th {line-height: 40px}
+    .chkTbl table tr td {padding: 10px 5px}
+    .chkTbl table tr td a {font-size: 13px}
+
+    .request legend {font-size: 18px; line-height: 22px; margin-bottom: 10px}
+
+    .join fieldset {margin-bottom: 30px}
+    .join fieldset .tit {padding-bottom: 10px}
+    .join fieldset .tit h5 {font-size: 18px; line-height: 24px}
+    .join fieldset .tit p {font-size: 13px; line-height: 20px; margin-top: 2px}
+    .join fieldset .scrollArea {padding: 15px 20px; height: 120px}
+    .join fieldset .chk {margin-top: 10px}
+    .join fieldset .chk label {margin-left: 5px; font-size: 13px}
+
+    .join .tit {font-size: 18px; line-height: 24px; padding-bottom: 10px}
+    .join .frmList > li {padding: 10px 0; padding-left: 120px; font-size: 13px; line-height: 40px}
+    .join .frmList > li:first-child {padding: 20px 0; padding-left: 120px}
+    .join .frmList > li.w50 {width: 100%}
+    .join .frmList > li strong {top: 10px; line-height: 40px; font-size: 15px; padding-left: 5px}
+    .join .frmList > li:first-child strong {top: 20px}
+    .join .frmList > li .inp,
+    .join .frmList > li .selt {height: 40px; line-height: 40px; padding: 0 10px; font-size: 13px}
+    .join .frmList > li .inp.w40,
+    .join .frmList > li .selt.w40 {width: calc(100% - 100px)}
+    .join .frmList > li .inp.w30,
+    .join .frmList > li .selt.w30 {width: 25%}
+    .join .frmList > li .inp.w50,
+    .join .frmList > li .selt.w50 {width: 48%}
+    .join .frmList > li textarea {height: 90px; padding: 10px 15px; font-size: 13px; line-height: 20px}
+    .join .frmList > li label {font-size: 14px; margin-right: 15px}
+    .join .frmList > li label input[type=radio] {width: 14px; height: 14px; margin-top: 13px}
+    .join .frmList > li dl .fileCust .tmb {width: 80px; height: 110px}
+    .join .frmList > li dl .fileCust .txt {width: calc(100% - 80px); padding-left: 20px; box-sizing: border-box}
+    .join .frmList > li dl .fileCust .txt h6 {font-size: 14px; line-height: 20px}
+    .join .frmList > li dl .fileCust .txt p {font-size: 13px; line-height: 20px; margin: 5px 0}
+    .join .frmList > li dl .fileCust .txt ol li {display: block; margin-right: 0; font-size: 13px; line-height: 20px}
+    .join .frmList > li .etxt {font-size: 13px; line-height: 20px; margin-top: 5px}
+    .join .frmList > li .itxt {line-height: 40px; font-size: 13px; margin: 0 10px 0 5px }
+    .join .frmList > li .ntxt {line-height: 40px; font-size: 13px; margin: 0 5px}
+    .join .frmList > li .wbtn {width: 90px; line-height: 40px; font-size: 13px; margin-right: 0}
+    .join .caution {padding: 0 20px; line-height: 40px; font-size: 13px}
+
+    .cpwWrap .tit {padding-bottom: 35px}
+    .cpwWrap .tit img {height: 100px}
+    .cpwWrap .tit h5 {margin-top: 25px; font-size: 24px; line-height: 34px}
+    .cpwWrap .info,
+    .cpwWrap .inpBox fieldset {border-width: 5px}
+    .cpwWrap .info {margin-bottom: 15px; padding: 20px}
+    .cpwWrap .info p {margin-bottom: 15px; font-size: 14px; line-height: 24px}
+    .cpwWrap .inpBox ul {padding: 10px 20px}
+    .cpwWrap .inpBox ul li {padding: 10px 0; padding-left: 120px}
+    .cpwWrap .inpBox ul li > * {line-height: 40px}
+    .cpwWrap .inpBox ul li strong {top: 10px; left: 10px; font-size: 14px}
+    .cpwWrap .inpBox ul li .inp {padding: 0 10px; font-size: 13px; line-height: 38px}
+    .cpwWrap .inpBox ul li .inp.w400 {width: 100%; margin: 0}
+    .cpwWrap .inpBox ul li span {display: block; margin-top: 5px; font-size: 13px; line-height: 22px}
+    .cpwWrap .inpBox .btns {margin-top: 25px}
+    .cpwWrap .inpBox .btns > * {width: 150px; line-height: 40px; font-size: 14px}
+    .cpwWrap .text {margin-top: 35px}
+    .cpwWrap .text dl {padding: 20px}
+    .cpwWrap .text dt {margin-bottom: 10px; padding-left: 20px; font-size: 14px; line-height: 22px; background-size: 14px; background-position: left 3px}
+    .cpwWrap .text dd {font-size: 14px; line-height: 22px}
+
+
+
+}
+
+
+@media screen and (max-width: 750px){
+
+    .sub {padding-top: 46px}
+
+    #sub .sub-vis {height: 140px; font-family: empty; font-size: 0}
+    #sub .sub-vis h2 {font-size: 17px}
+    #sub .sub-vis h2 em {font-size: 13px; line-height: 20px}
+
+    #sub #content {padding: 40px 10px}
+    #sub .sub-tit {padding-bottom: 30px}
+    #sub .sub-tit h3 {font-size: 20px; line-height: 30px}
+    #sub .sub-tit p {font-size: 14px; line-height: 22px; margin-top: 2px}
+
+    .subTit {padding-left: 15px; font-size: 18px; line-height: 30px}
+    .subTit:before {width: 10px; height: 10px; top: 10px}
+    .subTit2 {padding-left: 15px; font-size: 16px; line-height: 22px}
+    .subTit2:before {top: 10px; width: 10px}
+    .subTxt {padding-left: 15px; font-size: 14px; line-height: 21px}
+
+    .sTit {font-size: 21px; line-height: 30px}
+    .sTxt {font-size: 14px; line-height: 22px}
+
+    .brBox {padding: 30px 20px}
+
+    .bsnWrap .imgBox {padding: 20px; padding-bottom: 0; overflow-x: auto}
+    .bsnWrap .ccpt .imgBox img {min-width: 650px}
+    .bsnWrap .area .box {margin-top: 25px}
+    .bsnWrap .area .box dl {margin-bottom: 40px}
+    .bsnWrap .area .box dl:before {height: 100%}
+    .bsnWrap .area .box dl dd {padding: 30px 30px}
+    .bsnWrap .area .box dl .mid {padding-left: 40px}
+    .bsnWrap .area .box dl .mid img {width: 25px; top: -2px}
+    .bsnWrap .area .box dl .mid h6 {font-size: 17px; line-height: 24px}
+    .bsnWrap .area .box dl .mid strong {font-size: 15px; line-height: 20px}
+    .bsnWrap .area .box dl .mid p {font-size: 14px; line-height: 22px}
+
+    .bsnWrap .prcs {padding: 50px 0}
+    .bsnWrap .prcs .brBox {margin-top: 15px}
+    .bsnWrap .prcs ul {flex-flow: row wrap; margin-top: 10px}
+    .bsnWrap .prcs ul:before {display: none}
+    .bsnWrap .prcs ul li {flex: 1 40%; padding: 10px 5px}
+    .bsnWrap .prcs ul li img {max-width: 100px}
+    .bsnWrap .prcs ul li dl dt {font-size: 16px; line-height: 20px}
+    .bsnWrap .prcs ul li dl dd {font-size: 13px; line-height: 20px}
+    .bsnWrap .efft .imgBox {overflow-x: auto}
+    .bsnWrap .efft .imgBox img {min-width: 600px}
+
+    .bsnWrap .topImg {height: auto; padding: 30px 20px}
+    .bsnWrap .topImg h6 {font-size: 18px; line-height: 28px}
+    .bsnWrap .topImg p {font-size: 14px; line-height: 22px; margin-top: 5px}
+    .bsnWrap .mod .brBox {overflow-x: auto}
+    .bsnWrap .mod ul {min-width: 700px; justify-content: space-between}
+    .bsnWrap .field ul {margin-top: 0}
+    .bsnWrap .field.type01 ul li {flex: 1 1 90%; margin: 10px 0}
+    .bsnWrap .field.type02 ul li {flex: 1 1 90%; margin: 10px 0}
+    .bsnWrap .field.type03 ul li {flex: 1 1 90%; margin: 10px 0}
+    .bsnWrap .field ul li img {width: 100%}
+    .bsnWrap .field ul li dl dt {font-size: 15px; line-height: 18px}
+    .bsnWrap .field.type03 ul li dl {min-height: 0}
+    .bsnWrap .comp .box dl {width: 100%; border-width: 1px 1px 0 1px; padding: 20px}
+    .bsnWrap .comp .box dl:last-child {border-bottom: 1px solid #ddd}
+    .bsnWrap .comp .box dl dt {flex-basis: 80px}
+    .bsnWrap .comp .box dl dt img {width: 60px}
+    .bsnWrap .comp .box dl dd .txt h6 {font-size: 16px; line-height: 22px}
+    .bsnWrap .comp .box dl dd .txt p {font-size: 13px}
+    .bsnWrap .target ul li {flex: 1 1 45%}
+    .bsnWrap .target ul li:nth-child(n+3) {margin-top: 10px !important}
+    .bsnWrap .target ul li:nth-child(4n) {margin-right: 10px}
+    .bsnWrap .target ul li:nth-child(2n) {margin-right: 0}
+    .bsnWrap .target ul li p {font-size: 14px; margin-top: 8px}
+    .bsnWrap .proc .brBox {overflow-x: auto}
+    .bsnWrap .proc .brBox img {min-width: 650px}
+    .bsnWrap .prog ul > li {flex: 1 1 45% !important}
+    .bsnWrap .prog ul > li:nth-child(2n) {padding-right: 0 !important}
+    .bsnWrap .prog.type02 ul > li:nth-child(3) {padding-right: 20px}
+    .bsnWrap .prog ul > li:nth-child(n+3) {margin-top: 10px}
+    .bsnWrap .prog ul > li:nth-child(2n):before {display: none}
+    .bsnWrap .prog.type02 ul > li:nth-child(3):before {display: block}
+    .bsnWrap .concept .imgBox,
+    .bsnWrap .need .imgBox {overflow-x: auto; padding: 30px 20px !important}
+    .bsnWrap .concept .imgBox img {min-width: 600px}
+    .bsnWrap .need .imgBox img {min-width: 500px}
+    .bsnWrap .talent .bgBox {overflow-x: auto}
+    .bsnWrap .talent .bgBox img {min-width: 450px}
+    .bsnWrap .concept.half dl .mid {padding: 20px; padding-bottom: 25px}
+    .bsnWrap .concept.half dl .mid strong.bkTit {font-size: 16px}
+    .bsnWrap .sphe ul li {flex: 1 45%}
+    .bsnWrap .sphe ul li:nth-child(n+4) {border-bottom: 0}
+    .bsnWrap .sphe ul li:nth-child(n+5) {border-bottom: 1px solid #ddd}
+    .bsnWrap .sphe ul li:nth-child(4) {border-left: 0}
+    .bsnWrap .sphe ul li:nth-child(odd) {border-left: 1px solid #ddd}
+    .bsnWrap .prog.type01 .brBox {overflow-x: auto}
+    .bsnWrap .prog.type01 .brBox img {min-width: 600px}
+    .bsnWrap .prcs.type02 .brBox {overflow-x: auto}
+    .bsnWrap .prcs.type02 .brBox ul {min-width: 650px}
+    .bsnWrap .prcs.type02 ul li {flex: 1 18%}
+    .bsnWrap .prcs ul li p {font-size: 14px; line-height: 18px}
+    .bsnWrap .info .box dl {flex: 1 100%; border-left: 1px solid #ddd; padding: 20px 50px; padding-right: 20px}
+    .bsnWrap .info .box dl:nth-child(n+3) {border-bottom: 0}
+    .bsnWrap .info .box dl:last-child {border-bottom: 1px solid #ddd}
+    .bsnWrap .sysm .brBox {padding: 20px}
+    .bsnWrap .sysm ul li {flex: 1 100%; padding: 10px 0}
+    .bsnWrap .sysm ul li:after {display: none !important}
+    .bsnWrap .sysm ul li h6 {margin: 0; line-height: 32px}
+    .bsnWrap .sysm ul li strong {font-size: 16px; line-height: 22px}
+    .bsnWrap .sysm ul li p br {display: none}
+    .bsnWrap .prgm .subTit2 {margin: 15px 0 10px}
+    .bsnWrap .prgm ul li {flex: 1 50%; border-width: 1px 1px 0 0; padding: 20px 10px}
+    .bsnWrap .prgm ul li:nth-child(3) {border-left: 1px solid #ddd}
+    .bsnWrap .prgm ul li:nth-child(n+3) {border-bottom: 1px solid #ddd}
+    .bsnWrap .prgm ul li img {width: 60px}
+    .bsnWrap .prgm ul li h6 {font-size: 16px; line-height: 22px}
+    .bsnWrap .prgm ul li p {font-size: 13px; letter-spacing: -1px}
+
+    .memWrap .brBox {padding: 20px 15px}
+    .memWrap .btns .btn {margin: 0; line-height: 36px; font-size: 13px; letter-spacing: -0.75px}
+    .memWrap .btns .btn.type02 {line-height: 34px}
+    .memWrap .btns .btn.w170 {width: 100px}
+    .memWrap .btns .btn.w170.mo {width: 130px}
+    .memWrap .btns.pnBtns {padding-bottom: 40px}
+    .memWrap .btns .lbtn {top: auto; bottom: 0; display: block; line-height: 30px; box-sizing: border-box; background-size: 30px !important}
+    .memWrap .btns .lbtn.prev {padding-left: 40px}
+    .memWrap .btns .lbtn.next {padding-right: 40px}
+    .memWrap .eTxt {font-size: 13px; line-height: 20px}
+
+    .pLogin h6 {font-size: 18px; line-height: 24px; margin-bottom: 15px}
+    .pLogin fieldset ul li {margin: 5px 0; padding: 0 5px 0 40px}
+    .pLogin fieldset ul li:first-child {margin-top: 0}
+    .pLogin fieldset ul li strong {width: 40px; margin: 7px 0}
+    .pLogin fieldset ul li strong img {width: 15px}
+    .pLogin fieldset ul li .inp {height: 40px; line-height: 40px; padding: 0 10px; font-size: 14px}
+    .pLogin fieldset .chk {margin-top: 10px}
+    .pLogin fieldset .chk a {font-size: 13px}
+    .pLogin fieldset .btns {margin-top: 20px}
+    .pLogin fieldset .btns .btn {line-height: 40px; font-size: 14px}
+    .pLogin fieldset .btns p {margin: 15px 0 10px; font-size: 14px; line-height: 20px}
+
+
+    .join fieldset .tit h5 {font-size: 16px; line-height: 22px}
+    .join fieldset .tit h5 span {font-size: 14px}
+    .join fieldset .tit p {margin-top: 0}
+
+    .join .tit {font-size: 16px; line-height: 22px}
+    .join .frmList > li {padding-left: 0}
+    .join .frmList > li:first-child {padding: 10px 0}
+    .join .frmList > li strong {position: static; display: block; line-height: 20px; font-size: 14px; padding-left: 0; margin-bottom: 5px}
+    .join .frmList > li dl .fileCust .tmb {margin: 0 auto}
+    .join .frmList > li dl .fileCust .txt {width: 100%; padding-left: 0; margin-top: 5px}
+    .join .frmList > li .inp,
+    .join .frmList > li .selt {height: 36px; line-height: 36px}
+    .join .frmList > li .inp.w40,
+    .join .frmList > li .selt.w40 {width: 100%}
+    .join .frmList > li .inp.w30,
+    .join .frmList > li .selt.w30 {width: 90%}
+    .join .frmList > li .inp.w50,
+    .join .frmList > li .selt.w50 {width: 100%}
+    .join .frmList > li .wbtn {width: 100%; margin: 0; margin-top: 2px; line-height: 36px}
+    .join .frmList > li .itxt {line-height: 36px; margin-right: 0}
+    .join .frmList > li .ntxt {line-height: 36px; margin-right: 0}
+
+    .tList .tbl table colgroup {display: none !important}
+    .tList .tbl table tr > * {padding: 5px 2px; font-size: 12px; line-height: 18px}
+    .tList .tbl table tr th {line-height: 32px; font-size: 13px; padding: 2px}
+    .tList .tbl table tr .inq .vwBtn {padding: 0 10px; line-height: 22px; font-size: 11px}
+
+    .tbl-mo table colgroup {}
+    .tbl-mo table tr > * {font-size: 13px}
+    .tbl-mo table tr th {letter-spacing: -1px}
+    .tbl-mo table tr th.vtcTxt {line-height: 18px}
+    .tbl-mo table tr td {padding: 5px}
+    .tbl-mo.type02 table tr td {padding-left: 70px}
+    .tbl-mo.type02 table tr td strong {letter-spacing: -1px}
+    .tbl-mo table tr td .inp,
+    .tbl-mo table tr td .selt {padding: 0 5px; letter-spacing: -0.5px}
+    .tbl-mo table tr td .inp.w15 {width: 15%}
+    .tbl-mo table tr td .inp.w20 {width: 20%}
+    .tbl-mo table tr td .inp.w35 {width: 42%}
+    .tbl-mo table tr td .selt.w40.ml5 {width: 100%; margin-left: 0 !important; margin-top: 5px}
+    .tbl-mo table tr td br.__mo {display: none !important}
+
+    .apply fieldset {margin-bottom: 20px}
+    .apply fieldset:last-child {margin-bottom: 0}
+    .apply .tit h5 {font-size: 16px; line-height: 22px}
+    .apply .tit h5 span {display: block; margin-left: 0; margin-top: 5px; line-height: 20px}
+    .apply .tit p {bottom: auto; top: 0}
+    .apply textarea {height: 120px; border-radius: 5px}
+
+    .view .topBg {height: auto; padding: 20px 10px; box-sizing: border-box}
+    .view .topBg h5 {font-size: 18px; line-height: 24px}
+    .view .topBg p {font-size: 14px; line-height: 21px; margin-top: 2px}
+    .view .Title {padding: 10px 0; margin-bottom: 15px}
+    .view .Title h6 {font-size: 15px; line-height: 22px; margin-top: 2px}
+    .view .info {padding: 15px 10px; margin-bottom: 15px}
+    .view .info li {flex: 1 50%; padding: 10px 0}
+    .view .info li:nth-child(3) {border-left: 0}
+    .view .info li:nth-child(n+3) {border-top: 1px solid #ddd}
+    .view .inqBox {margin: 30px 0}
+    .view .inqBox h6 {font-size: 16px; line-height: 22px}
+    .view .inqBox .tbl table colgroup {display: none !important}
+    .view .inqBox .tbl table tr > * {display: block; padding: 5px 10px; font-size: 13px; line-height: 20px}
+
+
+    .view2 .sec .tit h5 {font-size: 18px; line-height: 26px; text-align: left}
+    .view2 .sec .tit .btn a {width: 65px; line-height: 26px; letter-spacing: -0.75px}
+    .view2 .sec .tit .btn .popBox ul {top: 26px}
+
+    .memBg {height: auto; padding: 25px 10px; box-sizing: border-box}
+    .memBg h5 {font-size: 16px; line-height: 22px; letter-spacing: -1.25px}
+    .memBg p {font-size: 13px; line-height: 20px; margin-top: 5px}
+
+    .srchBar span {font-size: 14px}
+    .srchBar span:first-child {margin-bottom: 5px}
+    .srchBar .selt {width: 100px; height: 36px; line-height: 36px; padding: 0 5px; font-size: 13px; vertical-align: middle}
+    .srchBar .selt.ml15 {margin-left: 0 !important}
+    .srchBar .selt.mr15 {margin-right: 0 !important}
+    .srchBar .sbm {width: 100px; height: 36px; line-height: 36px; font-size: 13px}
+    .srchBar .selt ~ span {display: block; line-height: 20px}
+    .srchBar dl {margin: 0; line-height: 20px}
+    .srchBar dl > * {display: block}
+
+    .docBox h6.tit {font-size: 18px; line-height: 24px}
+    .docBox .tbl table tr th {font-size: 12px}
+    .docBox .tbl table tr > * {font-size: 12px}
+    .docBox .tbl.type00 table colgroup {display: none !important}
+    .docBox .tbl.type00 table tr {overflow: hidden}
+    .docBox .tbl.type00 table tr > * {display: block; width: 100%; min-height: 30px; border: 0; border-bottom: 1px solid #ddd; height: auto; text-align: center !important}
+    /* .docBox .tbl.type00 table tr th {width: 30%}
+    .docBox .tbl.type00 table tr td {width: 70%} */
+    .docBox .ftBox p {font-size: 13px; margin-bottom: 5px}
+    .docBox .ftBox .mbtn {position: static; width: 100%}
+
+    .wBorder{height: auto;}
+    .wBorder .total{font-size: 12px;line-height: auto;}
+    .wBorder fieldset{position: relative;top: auto;right: auto;margin: -0.5% !important;}
+    .wBorder fieldset > *{height: 35px;margin: 0.5% !important;}
+    .wBorder .where{width: 35%;}
+    .wBorder .where select{height: 35px;padding-left: 5px;font-size: 13px;letter-spacing: -1px;}
+    .wBorder .category{width: 99%;background-position: 97% center;}
+    .wBorder .inp{padding-right: 35px;width: 63%;}
+    .wBorder .inp .keyword{width: 100%;height: 35px;font-size: 13px;padding-left: 10px;}
+    .wBorder .inp .sbm{width: 35px;height: 35px;}
+
+    .chkTbl table tr > * {font-size: 13px; padding: 0 2px}
+    .chkTbl table tr th {line-height: 30px}
+    .chkTbl table tr td {padding: 5px 2px; font-size: 12px}
+    .chkTbl table tr td a {font-size: 12px; background-size: 10px; padding-right: 15px}
+    .chkTbl table tr .numb {display: none}
+
+    .paging a {width: 25px; height: 25px; line-height: 23px; font-size: 11px}
+    .paging a:after{line-height: 23px; font-size: 13px}
+    .paging a.first, .paging a.prev, .paging a.next, .paging a.last {font-size: 13px}
+    .paging a.first, .paging a.last {width: 28px}
+    .paging a.prev {margin-right: 5px}
+    .paging a.next {margin-left: 5px}
+
+    .request legend {font-size: 16px}
+    .request .privacy {height: 120px; font-size: 12px; line-height: 16px}
+    .join .caution {padding: 10px; line-height: 20px}
+    .join .caution strong {display: block; margin-right: 0; margin-bottom: 3px}
+
+    .visWrap .visMis h6 {font-size: 17px; line-height: 24px}
+    .visWrap .imgBg {height: 150px}
+    .visWrap .imgBg h6 {font-size: 20px; line-height: 28px}
+    .visWrap .imgBg h6 span {margin-bottom: 0}
+
+    .list .tmbList {margin: -10px 0}
+    .list .tmbList li {flex: 1 100%; max-width: 100%; margin: 10px 0}
+
+    #mainSection01.active .slogan h5,
+    #mainSection02.active .slogan h5,
+    #mainSection03.active .slogan h5,
+    #mainSection04.active .tit h5 {transition-delay: 0.2s}
+    #mainSection01.active .slogan p,
+    #mainSection02.active .slogan p,
+    #mainSection03.active .slogan p,
+    #mainSection04.active .tit p {transition-delay: 0.5s}
+
+    .cpwWrap .tit {padding-bottom: 25px}
+    .cpwWrap .tit img {height: 80px}
+    .cpwWrap .tit h5 {margin-top: 15px; font-size: 20px; line-height: 30px}
+    .cpwWrap .tit h5 br {display: none}
+    .cpwWrap .info {margin-bottom: 10px; padding: 15px}
+    .cpwWrap .info p {margin-bottom: 10px; font-size: 13px; line-height: 22px}
+    .cpwWrap .info p br {display: none}
+    .cpwWrap .inpBox ul {padding: 10px 15px}
+    .cpwWrap .inpBox ul li {padding: 10px 0}
+    .cpwWrap .inpBox ul li strong {position: static; display: block; margin-bottom: 5px; line-height: 20px}
+    .cpwWrap .inpBox .btns {display: flex; flex-flow: row wrap; margin: 0 -5px; margin-top: 20px}
+    .cpwWrap .inpBox .btns > * {width: calc(50% - 10px); line-height: 36px; font-size: 13px}
+    .cpwWrap .text {margin-top: 25px}
+    .cpwWrap .text dl {padding: 15px}
+    .cpwWrap .text dt {font-size: 13px; background-position: left 5px}
+    .cpwWrap .text dd {font-size: 13px; line-height: 21px}
+
+
+
+}
+
+@media screen and (max-width: 380px){
+
+    #main .visual .btns ul {padding: 0 15px}
+    #main .visual .btns ul li a {padding: 0 15px}
+    #main .visual .btns ul li a span {background-size: 7px !important}
+
+}
